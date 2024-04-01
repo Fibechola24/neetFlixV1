@@ -19,4 +19,11 @@ Neetflixy is a cutting-edge streaming platform that brings you a vast collection
 
 - **User-friendly Interface**: Navigate Neetflixy effortlessly with our intuitive and user-friendly interface, designed for seamless browsing and discovery.
 
-## 
+## Contributing
+
+We welcome contributions from the community! If you have ideas for new features or want to participate, bug fixes, or improvements, feel free to submit a pull request. 
+
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
