@@ -8,19 +8,10 @@ import { threadId } from 'worker_threads';
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.scss'
 })
-export class SliderComponent implements 
-OnInit {
+export class SliderComponent {
 
-  movies: any;
   constructor (private moviesService: MoviesService) {}
 
-  ngOnInit() {
-   this.getPopularMovies();
-  }
-
-  getPopularMovies(){
-    this.moviesService.getPopularMovies().subscribe((data)=>{
-      this.movies = data;
-    })
-  }
+    movies$ = this.moviesService.getPopularMovies();
+  
 }
