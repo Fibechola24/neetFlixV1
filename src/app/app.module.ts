@@ -8,9 +8,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MoviesListComponent } from './pages/movies-list/movies-list.component';
 import { SliderComponent } from './component/slider/slider.component';
-import { HttpClientModule, withFetch } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './services/movies.service';
-import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,7 @@ import { provideHttpClient } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    provideClientHydration(),  MoviesService
-   
+    provideClientHydration(), MoviesService
   ],
   bootstrap: [AppComponent]
 })
