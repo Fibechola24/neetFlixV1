@@ -14,12 +14,14 @@ export class SliderComponent {
 
   constructor (private moviesService: MoviesService) {}
 
-    movies$ = this.moviesService.getPopularMovies().pipe(
-      tap((x) => {
-        console.log(x);
-      })
-    );
+    movies$ = this.moviesService.getPopularMovies();
+    // pipe(
+    // //   tap((x) => {
+    // //     console.log(x);
+    // //   })
+    // // );
   
-    items = ['Name1', 'Name2', 'Name3', "Name4"];
+    // items = ['Name1', 'Name2', 'Name3', "Name4"];
   
+   
 }

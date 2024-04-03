@@ -1,32 +1,40 @@
-<div class="slider">
-    <div class="slide">
+<div class="slider" *ngIf="movies$ | async as movies">
+    <div class="slide" *ngFor="let movie of movies.results">
         <div class="slide-bg">
             <img
-                src="https://www.themoviedb.org/t/p/w1280/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg"
+                [src]="'https://image.tmdb.org/t/p/w200' + movie.back_drop"
                 alt="slider-image background"
             />
         </div>
 
         <div class="slide-pane">
-            <h2 class="title">Slider Title</h2>
+            <h2 class="title">
+                <ng-container *ngFor="let knownfor of movie.known_for">
+                    {{ knownfor.title }}
+                </ng-container>
+            </h2>
 
             <div class="meta mb-4">
                 <div class="rating mb-1">
                     <i class="pi pi-star-fill"></i>
-                    <span>8.9</span>
-                    <span>/10</span>
+                    <span>{{ movie.name }}</span>
+                    <span></span>
                 </div>
                 <div class="votes">
                     <i class="pi pi-users"></i>
-                    <span>4433</span>
+                    <span>{{ movie.popularity }}</span>
                 </div>
 
                 <div class="release-date">
                     <i class="pi pi-calendar"></i>
-                    <span>22.01.2024</span>
+                    <span>{{ movie.release_date }}</span>
                 </div>
             </div>
-            <div class="description">Some text will go here!</div>
+            <div class="description">
+                <ng-container *ngFor="let knownfor of movie.known_for">
+                    {{ knownfor.overview }}
+                </ng-container>
+            </div>
         </div>
     </div>
 </div>
@@ -38,16 +46,14 @@ This is array of three items and more
 </div> -->
 <pre>
         {{ movies$ | async | json }}
-</pre>  
+</pre>
 
-<div *ngIf="movies$ | async as movies">
+<!-- <div *ngIf="movies$ | async as movies">
     <div class="movie" *ngFor="let movie of movies.results">
-        <!-- cannot render objects so we need the if to change it to array -->
+       annot render objects so we need the if to //change it to array 
         {{ movie.known_for.length > 0 ? movie.known_for[0].title : 'No title available' }}
-        <!-- {{ movie.known_for[0].original_title }} -->
-        <!-- {{ movie.name }}
-        {{ movie.id }} -->
+        {{ movie.known_for[0].original_title }} 
+        {{ movie.name }}
+       {{ movie.id }}  
     </div>
-</div>
-
-
+</div>-->
