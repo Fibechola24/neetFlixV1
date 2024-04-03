@@ -3,7 +3,7 @@
     height: 35rem;
     .slide {
       width: 100%;
-      position: absolute;
+      position: relative;
       height: 35rem;
       &-bg {
         height: 35rem;
@@ -33,7 +33,7 @@
         position: absolute;
         top: 5rem;
         left: 5rem;
-        color: white;
+        color: rgb(225, 226, 241);
   
         .title {
           font-size: 2.5rem;
