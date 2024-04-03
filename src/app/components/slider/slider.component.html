@@ -30,7 +30,23 @@
         </div>
     </div>
 </div>
-<pre>
+<!-- <div *ngFor="let item of items">
+   <div>{{item}}</div>
+</div>
+<div *ngIf="items.length > 3">
+This is array of three items and more
+</div> -->
+<!-- <pre>
         {{ movies$ | async | json }}
-</pre>
+</pre>  -->
+
+<div *ngIf="movies$ | async as movies">
+    <div class="movie" *ngFor="let movie of movies.results">
+        <!-- cannot render objects so we need the if to change it to array -->
+        {{ movie.known_for.length > 0 ? movie.known_for[0].title : 'No title available' }}
+        <!-- {{ movie.name }}
+        {{ movie.id }} -->
+    </div>
+</div>
+
 
