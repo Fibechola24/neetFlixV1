@@ -3,14 +3,15 @@
     
     id : number,
     name: string,
-    back_drop: string,
     poster_path: string,
+    profile_path:string,
     popularity: number,
     release_date: Date,
     known_for : {
         title: string,
         overview: string,
         original_title: string
+        backdrop_path: string,
 
     }[],
     genre_id: number,

@@ -1,10 +1,10 @@
-<div class="slider" *ngIf="movies$ | async as movies">
-    <div class="slide" *ngFor="let movie of movies.results">
+<div class="slider" *ngIf="movies$ |async as movies">
+    <div class="slide" *ngFor="let movie of movies.results; let movieIndex = index ">
+        
+      <ng-container *ngIf="movieIndex === slideIndex">
         <div class="slide-bg">
-            <img
-                [src]="'https://image.tmdb.org/t/p/w200' + movie.back_drop"
-                alt="slider-image background"
-            />
+            <img [src]= "imagesBaseUrl  + 'original' + movie.poster_path" 
+            [alt]="movie.title">
         </div>
 
         <div class="slide-pane">
@@ -35,25 +35,28 @@
                     {{ knownfor.overview }}
                 </ng-container>
             </div>
+
         </div>
+
+      </ng-container>
+
     </div>
 </div>
+
+
 <!-- <div *ngFor="let item of items">
    <div>{{item}}</div>
 </div>
 <div *ngIf="items.length > 3">
 This is array of three items and more
 </div> -->
-<pre>
+<!-- <pre>
         {{ movies$ | async | json }}
 </pre>
 
-<!-- <div *ngIf="movies$ | async as movies">
+<div  *ngIf="movies$ | async as movies">
     <div class="movie" *ngFor="let movie of movies.results">
-       annot render objects so we need the if to //change it to array 
-        {{ movie.known_for.length > 0 ? movie.known_for[0].title : 'No title available' }}
-        {{ movie.known_for[0].original_title }} 
-        {{ movie.name }}
-       {{ movie.id }}  
-    </div>
-</div>-->
+       annot render objects so we need the if to //change it to array  
+       <span>{{ movie.backdrop_path}}</span>
+       
+</div> -->
