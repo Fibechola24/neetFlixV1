@@ -11,6 +11,9 @@ import { SliderComponent } from './components/slider/slider.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './services/movies.service';
 
+import { ShowItemComponent } from './components/show-item/show-item.component';
+import { BannerComponent } from './components/banner/banner.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,9 @@ import { MoviesService } from './services/movies.service';
     FooterComponent,
     HomeComponent,
     MoviesListComponent,
-    SliderComponent
+    SliderComponent,
+    BannerComponent,
+    ShowItemComponent
   ],
   imports: [
     BrowserModule,

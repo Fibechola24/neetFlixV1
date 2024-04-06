@@ -6,6 +6,7 @@ import { map, tap } from 'rxjs';
 import { imagesBaseUrl } from '../../constants/images-size';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
+
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -17,26 +18,27 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ]),
   ],
 })
-export class SliderComponent implements OnInit {
+export class SliderComponent  {
   constructor(private moviesService: MoviesService) {}
 
-  movies$ = this.moviesService.getMoviesByType('popular');
+ 
+  movies$ = this.moviesService.getPopularMovies();
 
   slideIndex = 0;
 
   imagesBaseUrl = imagesBaseUrl;
 
-  ngOnInit() {
-    this.changeSlide();
+  // ngOnInit() {
+  //   this.changeSlide();
+  // }
+
+  // changeSlide() {
+  //   setInterval(() => {
+  //     this.slideIndex += 1;
+  //     if (this.slideIndex > 10) {
+  //       this.slideIndex = 0;
+  //     }
+  //   }, 5000);
   }
 
-  changeSlide() {
-    setInterval(() => {
-      this.slideIndex += 1;
-      if (this.slideIndex > 10) {
-        this.slideIndex = 0;
-      }
-    }, 5000);
-  }
-}
 

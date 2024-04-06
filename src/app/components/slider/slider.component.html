@@ -1,48 +1,48 @@
-<div class="slider" *ngIf="movies$ |async as movies">
-    <div class="slide" *ngFor="let movie of movies.results; let movieIndex = index ">
-        
-      <ng-container *ngIf="movieIndex === slideIndex">
-        <div class="slide-bg">
-            <img [src]= "imagesBaseUrl  + 'original' + movie.poster_path" 
-            [alt]="movie.title">
-        </div>
-
-        <div class="slide-pane">
-            <h2 class="title">
-                <ng-container *ngFor="let knownfor of movie.known_for">
-                    {{ knownfor.title }}
-                </ng-container>
-            </h2>
-
-            <div class="meta mb-4">
-                <div class="rating mb-1">
-                    <i class="pi pi-star-fill"></i>
-                    <span>{{ movie.name }}</span>
-                    <span></span>
-                </div>
-                <div class="votes">
-                    <i class="pi pi-users"></i>
-                    <span>{{ movie.popularity }}</span>
-                </div>
-
-                <div class="release-date">
-                    <i class="pi pi-calendar"></i>
-                    <span>{{ movie.release_date }}</span>
-                </div>
-            </div>
-            <div class="description">
-                <ng-container *ngFor="let knownfor of movie.known_for">
-                    {{ knownfor.overview }}
-                </ng-container>
+<div class="slider" *ngIf="movies$ | async as movies">
+    <div
+        class="slide"
+        *ngFor="let movie of movies.results; let movieIndex = index"
+    >
+        <ng-container *ngIf="movieIndex === slideIndex">
+            <div class="slide-bg">
+                <img
+                    [src]="imagesBaseUrl + 'original' + movie.poster_path"
+                    [alt]="movie.title"
+                />
             </div>
 
-        </div>
+            <div class="slide-pane">
+                <h2 class="title">
+                    <ng-container *ngFor="let knownfor of movie.known_for">
+                        {{ knownfor.title }}
+                    </ng-container>
+                </h2>
 
-      </ng-container>
+                <div class="meta mb-4">
+                    <div class="rating mb-1">
+                        <i class="pi pi-star-fill"></i>
+                        <span>{{ movie.name }}</span>
+                        <span></span>
+                    </div>
+                    <div class="votes">
+                        <i class="pi pi-users"></i>
+                        <span>{{ movie.popularity }}</span>
+                    </div>
 
+                    <div class="release-date">
+                        <i class="pi pi-calendar"></i>
+                        <span>{{ movie.release_date }}</span>
+                    </div>
+                </div>
+                <div class="description">
+                    <ng-container *ngFor="let knownfor of movie.known_for">
+                        {{ knownfor.overview }}
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
     </div>
 </div>
-
 
 <!-- <div *ngFor="let item of items">
    <div>{{item}}</div>
@@ -50,13 +50,13 @@
 <div *ngIf="items.length > 3">
 This is array of three items and more
 </div> -->
-<!-- <pre>
+ <!-- <pre>
         {{ movies$ | async | json }}
-</pre>
+</pre> -->
 
-<div  *ngIf="movies$ | async as movies">
+<!-- <div  *ngIf="movies$ | async as movies">
     <div class="movie" *ngFor="let movie of movies.results">
        annot render objects so we need the if to //change it to array  
        <span>{{ movie.backdrop_path}}</span>
        
-</div> -->
+</div>  -->
